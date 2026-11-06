@@ -9,32 +9,32 @@ import {
 type Page = 'accueil' | 'programmes' | 'podcasts' | 'annonceurs';
 type Track = { title: string; subtitle: string; image: string; url: string; live?: boolean };
 
-const STREAM_URL = import.meta.env.VITE_RADIO_STREAM_URL || 'https://icecast.radiofrance.fr/franceinter-midfi.mp3';
+const STREAM_URL = import.meta.env.VITE_RADIO_STREAM_URL || 'https://icecast.radiofrance.fr/fip-midfi.mp3';
 const LIVE_TRACK: Track = {
-  title: 'Le réveil des falaises',
-  subtitle: 'En direct avec Camille Legrand',
+  title: 'Le son de la côte',
+  subtitle: 'Soul · Hip-hop · Reggae · Électro',
   image: '/images/studio.jpg',
   url: STREAM_URL,
   live: true,
 };
 
 const podcasts = [
-  { id: 1, title: 'Les gens du littoral', category: 'Rencontres', episode: 'Ép. 24 — Yann, sauveteur en mer', duration: '28 min', date: '02 nov. 2026', image: '/images/cote.jpg', color: 'sage', url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3' },
-  { id: 2, title: 'Ça se passe près de chez vous', category: 'Actualité locale', episode: 'Ép. 18 — Fécamp, port de tous les possibles', duration: '19 min', date: '31 oct. 2026', image: '/images/falaises.jpg', color: 'blue', url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3' },
-  { id: 3, title: 'Histoires de marées', category: 'Culture', episode: 'Ép. 09 — La légende de la chambre des Demoiselles', duration: '34 min', date: '29 oct. 2026', image: '/images/micro.jpg', color: 'coral', url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3' },
-  { id: 4, title: 'Le grand large', category: 'Musique', episode: 'Ép. 41 — La playlist des jours de grand vent', duration: '46 min', date: '26 oct. 2026', image: '/images/studio.jpg', color: 'yellow', url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3' },
-  { id: 5, title: 'La côte en héritage', category: 'Culture', episode: 'Ép. 12 — Ces métiers qui façonnent le littoral', duration: '31 min', date: '24 oct. 2026', image: '/images/cote.jpg', color: 'sage', url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3' },
-  { id: 6, title: 'Le journal de la côte', category: 'Actualité locale', episode: 'Ép. 87 — Les initiatives de la semaine', duration: '12 min', date: '22 oct. 2026', image: '/images/falaises.jpg', color: 'blue', url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3' },
+  { id: 1, title: 'Grooves du littoral', category: 'Soul & groove', episode: 'Session 24 — Soul brute et voix du large', duration: '28 min', date: '02 nov. 2026', image: '/images/cote.jpg', color: 'sage', url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3' },
+  { id: 2, title: 'Hip-hop à marée haute', category: 'Hip-hop', episode: 'Session 18 — Beats sans frontières', duration: '42 min', date: '31 oct. 2026', image: '/images/falaises.jpg', color: 'blue', url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3' },
+  { id: 3, title: 'Reggae côté mer', category: 'Reggae', episode: 'Session 09 — Dub, roots and good vibes', duration: '34 min', date: '29 oct. 2026', image: '/images/micro.jpg', color: 'coral', url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3' },
+  { id: 4, title: 'Le grand large', category: 'Électro', episode: 'Session 41 — La playlist des jours de grand vent', duration: '46 min', date: '26 oct. 2026', image: '/images/studio.jpg', color: 'yellow', url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3' },
+  { id: 5, title: 'Pépites du placard', category: 'Soul & groove', episode: 'Session 12 — Des vinyles qui sentent bon le large', duration: '31 min', date: '24 oct. 2026', image: '/images/cote.jpg', color: 'sage', url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3' },
+  { id: 6, title: 'Électro littoral', category: 'Électro', episode: 'Session 87 — Nouvelles vagues électroniques', duration: '38 min', date: '22 oct. 2026', image: '/images/falaises.jpg', color: 'blue', url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3' },
 ];
 
 const schedule = [
-  { time: '06:00', end: '07:00', title: 'Premiers cafés', host: 'La côte s’éveille en musique', type: 'MUSIQUE', color: '#ef9a80' },
-  { time: '07:00', end: '10:00', title: 'Le réveil des falaises', host: 'Camille Legrand', type: 'EN DIRECT', color: '#dfff75', current: true },
-  { time: '10:00', end: '12:00', title: 'La matinée détendue', host: 'Martin Feron', type: 'MUSIQUE & LOCAL', color: '#9fc9d0' },
-  { time: '12:00', end: '14:00', title: 'Le journal de midi', host: 'L’actualité de la côte d’Albâtre', type: 'ACTUALITÉ', color: '#f1cf6a' },
-  { time: '14:00', end: '17:00', title: 'L’après-midi en grand', host: 'Léa Dubois', type: 'MUSIQUE', color: '#c6b8df' },
-  { time: '17:00', end: '19:00', title: 'La route du retour', host: 'Nicolas Varenne', type: 'DRIVE', color: '#ef9a80' },
-  { time: '19:00', end: '21:00', title: 'Histoires de marées', host: 'Récits et portraits du littoral', type: 'CULTURE', color: '#9fc9d0' },
+  { time: '06:00', end: '09:00', title: 'Premiers cafés', host: 'Soul douce et grooves du matin', type: 'SÉLECTION MUSICALE', color: '#ef9a80' },
+  { time: '09:00', end: '12:00', title: 'Le son de la côte', host: 'Hip-hop, soul et pépites sans frontières', type: 'EN DIRECT', color: '#dfff75', current: true },
+  { time: '12:00', end: '14:00', title: 'Dub lunch', host: 'Reggae, dub et bonnes vibrations', type: 'REGGAE & DUB', color: '#9fc9d0' },
+  { time: '14:00', end: '17:00', title: 'Groove continental', host: 'Funk, disco et soul sans modération', type: 'GROOVE', color: '#f1cf6a' },
+  { time: '17:00', end: '19:00', title: 'Nouvelles vagues', host: 'Électro organique et découvertes', type: 'ÉLECTRO', color: '#c6b8df' },
+  { time: '19:00', end: '02:00', title: 'Groovy time', host: 'La nuit en hip-hop, soul et électro', type: 'LIVE MIX', color: '#ef9a80' },
+  { time: '02:00', end: '06:00', title: 'Slow tide', host: 'Ambient et douceurs pour finir la nuit', type: 'AMBIENT', color: '#9fc9d0' },
 ];
 
 function WaveLogo({ light = false }: { light?: boolean }) {
@@ -175,14 +175,14 @@ function HomePage({ playLive, playing, navigate, startTrack }: { playLive: () =>
   return <>
     <section className="hero section-wrap">
       <div className="hero-copy">
-        <div className="eyebrow"><span className="live-dot on" /> LA RADIO DE LA CÔTE D’ALBÂTRE</div>
-        <h1>LE SON<br />QUI NOUS<br /><span>RASSEMBLE.</span></h1>
-        <p>Des voix d’ici, des histoires vraies et la musique qu’on aime. Branchez-vous, la côte vous parle.</p>
+        <div className="eyebrow"><span className="live-dot on" /> LA WEBRADIO MUSICALE DE GRANVILLE</div>
+        <h1>DU BON<br />SON.<br /><span>BRUT.</span></h1>
+        <p>Soul, hip-hop, reggae, électro et petites perles qui vont bien. Des sélections faites par des humains, pour des humains.</p>
         <div className="hero-actions">
           <button className="button button-dark" onClick={playLive}>{playing ? <Pause size={18} fill="currentColor" /> : <Play size={18} fill="currentColor" />}{playing ? 'Mettre en pause' : 'Écouter le direct'}</button>
           <button className="text-link" onClick={() => navigate('programmes')}>Voir les programmes <ArrowRight size={18} /></button>
         </div>
-        <div className="hero-meta"><span><Radio size={15} /> 102.3 FM</span><span><Headphones size={15} /> EN LIGNE</span><span><MapPin size={15} /> FÉCAMP · ÉTRETAT · YPORT</span></div>
+        <div className="hero-meta"><span><Radio size={15} /> 100 % MUSIQUE</span><span><Headphones size={15} /> SÉLECTIONS HUMAINES</span><span><MapPin size={15} /> GRANVILLE · NORMANDIE</span></div>
       </div>
       <div className="hero-visual">
         <div className="hero-image-wrap">
@@ -191,22 +191,22 @@ function HomePage({ playLive, playing, navigate, startTrack }: { playLive: () =>
           <span className="on-air"><i /> ON AIR</span>
           <div className="hero-show">
             <div className="show-time"><Clock3 size={15} /> 07:00 — 10:00</div>
-            <h2>Le réveil<br />des falaises</h2>
-            <p>avec Camille Legrand</p>
+            <h2>Le son<br />de la côte</h2>
+            <p>Une sélection L’Écume · sans blabla</p>
             <Waveform active={playing} light />
           </div>
         </div>
-        <div className="hero-sticker"><span>100%</span><small>CÔTE<br />D’ALBÂTRE</small><WaveLogo /></div>
+        <div className="hero-sticker"><span>100%</span><small>BON SON<br />DU LARGE</small><WaveLogo /></div>
         <div className="listeners-pill"><span className="avatar-stack"><i>C</i><i>M</i><i>L</i></span><strong>1 248</strong> auditeurs en ligne</div>
       </div>
       <a href="#programme" className="scroll-hint"><ArrowDown size={16} /> DÉCOUVRIR</a>
     </section>
 
-    <div className="ticker"><div className="ticker-track"><span>LA CÔTE VOUS PARLE</span><WaveLogo light /><span>DES HISTOIRES D’ICI</span><WaveLogo light /><span>LA MUSIQUE QU’ON AIME</span><WaveLogo light /><span>LA CÔTE VOUS PARLE</span><WaveLogo light /><span>DES HISTOIRES D’ICI</span></div></div>
+    <div className="ticker"><div className="ticker-track"><span>SOUL</span><WaveLogo light /><span>HIP-HOP</span><WaveLogo light /><span>REGGAE</span><WaveLogo light /><span>ÉLECTRO</span><WaveLogo light /><span>ET AUTRES PÉPITES QUI VONT BIEN</span></div></div>
 
     <section className="schedule-section section-wrap" id="programme">
-      <div className="section-heading"><div><span className="kicker">AUJOURD’HUI SUR L’ÉCUME</span><h2>Votre journée,<br /><em>en bonne compagnie.</em></h2></div><button className="outline-button" onClick={() => navigate('programmes')}>Toute la grille <ArrowUpRight size={18} /></button></div>
-      <div className="day-label"><CalendarDays size={18} /><strong>MERCREDI 4 NOVEMBRE</strong><span>Une journée sur la côte</span></div>
+      <div className="section-heading"><div><span className="kicker">AUJOURD’HUI SUR L’ÉCUME</span><h2>Des sélections,<br /><em>pas des algorithmes.</em></h2></div><button className="outline-button" onClick={() => navigate('programmes')}>Toute la grille <ArrowUpRight size={18} /></button></div>
+      <div className="day-label"><CalendarDays size={18} /><strong>LA PROGRAMMATION DU LARGE</strong><span>Du bon son, du matin au soir</span></div>
       <div className="schedule-list">
         {schedule.slice(0, 5).map((show, index) => <div className={`schedule-row ${show.current ? 'current' : ''}`} key={show.time}>
           <div className="schedule-time">{show.time}<small>{show.end}</small></div>
@@ -218,22 +218,43 @@ function HomePage({ playLive, playing, navigate, startTrack }: { playLive: () =>
       </div>
     </section>
 
+    <section className="track-history">
+      <div className="section-wrap">
+        <div className="section-heading"><div><span className="kicker">PASSÉ TOUT RÉCEMMENT</span><h2>Les derniers titres.<br /><em>De belles découvertes.</em></h2></div><a className="outline-button history-propose" href="mailto:son@ecumedesfalaises.fr?subject=Je propose un titre">Proposer un titre <ArrowUpRight size={18} /></a></div>
+        <div className="history-list">
+          {[
+            { title: 'Lueur', artist: 'Noka', genre: 'ÉLECTRO ORGANIQUE', time: 'À L’INSTANT', color: '#dfff75' },
+            { title: 'Marée haute', artist: 'Vanel', genre: 'SOUL', time: 'IL Y A 4 MIN', color: '#ef9a80' },
+            { title: 'Contre-courant', artist: 'Les Marées', genre: 'HIP-HOP', time: 'IL Y A 8 MIN', color: '#9fc9d0' },
+            { title: 'Après minuit', artist: 'Mono Club', genre: 'DUB', time: 'IL Y A 12 MIN', color: '#f1cf6a' },
+          ].map((track, i) => <div className="history-row" key={track.title}>
+            <span className="history-number">0{i + 1}</span>
+            <div className="history-cover" style={{ background: track.color }}><AudioLines size={25} /></div>
+            <div className="history-track"><h3>{track.title}</h3><p>{track.artist}</p></div>
+            <span className="history-genre">{track.genre}</span>
+            <span className="history-time">{track.time}</span>
+            <button className="round-play" onClick={() => startTrack({ title: track.title, subtitle: `${track.artist} · extrait de démonstration`, image: '/images/micro.jpg', url: podcasts[i].url })} aria-label={`Écouter un extrait de ${track.title}`}><Play size={17} fill="currentColor" /></button>
+          </div>)}
+        </div>
+      </div>
+    </section>
+
     <section className="local-section">
       <div className="section-wrap local-grid">
         <div className="local-image"><img src="/images/cote.jpg" alt="Paysage de la côte normande" /><span className="vertical-caption">48.7600° N — 0.3700° E</span></div>
-        <div className="local-copy"><span className="kicker">UNE RADIO, UN TERRITOIRE</span><h2>Ici, chaque histoire<br />a <em>le goût du large.</em></h2><p>De Fécamp à Étretat, nous faisons résonner celles et ceux qui font vivre notre littoral. Une radio libre, curieuse et résolument locale.</p><div className="local-stats"><div><strong>25 000</strong><span>auditeurs chaque semaine</span></div><div><strong>100 %</strong><span>de création locale</span></div></div><button className="text-link" onClick={() => navigate('podcasts')}>Découvrir nos histoires <ArrowRight size={18} /></button></div>
+        <div className="local-copy"><span className="kicker">UNE RADIO, DES OREILLES CURIEUSES</span><h2>Du bon son brut.<br /><em>Rien que ça.</em></h2><p>Nous aimons les disques qui sortent des sentiers battus, les voix qui racontent quelque chose et les basses qui font du bien. Une radio libre, associative et résolument normande.</p><div className="local-stats"><div><strong>24 / 7</strong><span>de musique en continu</span></div><div><strong>100 %</strong><span>de sélections humaines</span></div></div><button className="text-link" onClick={() => navigate('podcasts')}>Découvrir nos sessions <ArrowRight size={18} /></button></div>
       </div>
     </section>
 
     <section className="podcast-preview section-wrap">
-      <div className="section-heading"><div><span className="kicker">À RÉÉCOUTER SANS MODÉRATION</span><h2>La côte, <em>dans vos oreilles.</em></h2></div><button className="outline-button" onClick={() => navigate('podcasts')}>Tous les podcasts <ArrowUpRight size={18} /></button></div>
+      <div className="section-heading"><div><span className="kicker">SESSIONS & SÉLECTIONS</span><h2>Du groove, <em>dans vos oreilles.</em></h2></div><button className="outline-button" onClick={() => navigate('podcasts')}>Tous les podcasts <ArrowUpRight size={18} /></button></div>
       <div className="podcast-grid">{podcasts.slice(0, 3).map(pod => <PodcastCard key={pod.id} podcast={pod} onPlay={() => startTrack({ title: pod.title, subtitle: pod.episode, image: pod.image, url: pod.url })} />)}</div>
     </section>
 
     <section className="ad-banner section-wrap">
       <div className="ad-icon"><Mic2 size={40} strokeWidth={1.4} /></div>
-      <div><span className="kicker">VOUS AVEZ UNE HISTOIRE À RACONTER ?</span><h2>Faites entendre<br />votre marque.</h2></div>
-      <div className="ad-banner-copy"><p>Touchez une audience locale et engagée. Notre équipe imagine avec vous un message qui résonne vraiment.</p><button className="button button-dark" onClick={() => navigate('annonceurs')}>Devenir annonceur <ArrowUpRight size={18} /></button></div>
+      <div><span className="kicker">TU FAIS DU SON ? ON T’ÉCOUTE.</span><h2>Ta musique<br />sur l’Écume.</h2></div>
+      <div className="ad-banner-copy"><p>Artistes, groupes, labels ou simples passionnés : envoyez-nous vos pépites. Notre équipe écoute tout, vraiment.</p><a className="button button-dark" href="mailto:son@ecumedesfalaises.fr?subject=Ma musique sur L’Écume">Proposer ma musique <Send size={17} /></a><button className="advertiser-secondary" onClick={() => navigate('annonceurs')}>Vous êtes une marque ? Découvrir nos offres <ArrowUpRight size={14} /></button></div>
       <WaveLogo />
     </section>
   </>;
@@ -270,9 +291,9 @@ function PodcastsPage({ startTrack, currentTrack, playing, togglePlay }: { start
     else startTrack({ title: pod.title, subtitle: pod.episode, image: pod.image, url: pod.url });
   };
   return <>
-    <section className="inner-hero podcast-hero section-wrap"><div><span className="kicker">NOS VOIX, VOS MOMENTS</span><h1>Des histoires<br /><em>à emporter.</em></h1></div><p>Au bord de la mer ou dans votre canapé, emmenez un peu de la côte avec vous.</p></section>
+    <section className="inner-hero podcast-hero section-wrap"><div><span className="kicker">DES SÉLECTIONS, PAS DES ALGORITHMES</span><h1>Du bon son<br /><em>à emporter.</em></h1></div><p>Au bord de la mer ou dans votre canapé, emmenez nos sessions soul, hip-hop, reggae et électro avec vous.</p></section>
     <section className="podcast-catalog section-wrap">
-      <div className="catalog-tools"><div className="filter-tabs">{['Tous', 'Actualité locale', 'Rencontres', 'Culture', 'Musique'].map(c => <button key={c} className={category === c ? 'active' : ''} onClick={() => setCategory(c)}>{c}</button>)}</div><label className="search-box"><Search size={18} /><input value={search} onChange={e => setSearch(e.target.value)} placeholder="Rechercher un podcast" /></label></div>
+      <div className="catalog-tools"><div className="filter-tabs">{['Tous', 'Soul & groove', 'Hip-hop', 'Reggae', 'Électro'].map(c => <button key={c} className={category === c ? 'active' : ''} onClick={() => setCategory(c)}>{c}</button>)}</div><label className="search-box"><Search size={18} /><input value={search} onChange={e => setSearch(e.target.value)} placeholder="Rechercher un podcast" /></label></div>
       <div className="catalog-count"><strong>{filtered.length} ÉPISODES</strong><span>à réécouter librement</span></div>
       {filtered.length ? <div className="podcast-grid catalog-grid">{filtered.map(pod => <PodcastCard key={pod.id} podcast={pod} onPlay={() => playPod(pod)} />)}</div> : <div className="empty-state"><Headphones size={42} /><h2>Aucun épisode trouvé</h2><p>Essayez un autre mot-clé ou une autre catégorie.</p><button className="text-link" onClick={() => { setSearch(''); setCategory('Tous'); }}>Voir tous les podcasts <ArrowRight size={17} /></button></div>}
     </section>
@@ -311,7 +332,7 @@ function AdvertisersPage({ setToast }: { setToast: (t: string) => void }) {
 }
 
 function Footer({ navigate }: { navigate: (p: Page) => void }) {
-  return <footer className="site-footer"><div className="section-wrap footer-grid"><div className="footer-brand"><div><WaveLogo light /><span>L’ÉCUME<br /><strong>DES FALAISES</strong></span></div><p>La radio qui fait vibrer<br />la côte d’Albâtre.</p><div className="socials"><a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram">ig</a><a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook">f</a><a href="https://youtube.com" target="_blank" rel="noreferrer" aria-label="YouTube">yt</a></div></div><div><span className="footer-label">LA RADIO</span><button onClick={() => navigate('programmes')}>Nos programmes</button><button onClick={() => navigate('podcasts')}>Nos podcasts</button><button onClick={() => navigate('accueil')}>Qui sommes-nous ?</button></div><div><span className="footer-label">NOUS TROUVER</span><p>12 quai des Pilotes<br />76400 Fécamp, France</p><p>102.3 FM<br />et partout en ligne</p></div><div className="newsletter"><span className="footer-label">LES NOUVELLES DU LARGE</span><p>Un e-mail par mois. Des histoires,<br />des découvertes, rien de superflu.</p><form onSubmit={e => { e.preventDefault(); const form = e.currentTarget; form.reset(); alert('Merci ! Vous êtes bien inscrit à notre newsletter.'); }}><input type="email" required placeholder="Votre adresse e-mail" aria-label="Votre adresse e-mail" /><button aria-label="S’inscrire"><ArrowRight size={20} /></button></form></div></div><div className="section-wrap footer-bottom"><span>© 2026 L’Écume des falaises</span><div><a href="mailto:bonjour@ecumedesfalaises.fr">Mentions légales</a><a href="mailto:bonjour@ecumedesfalaises.fr">Confidentialité</a></div><span>FAIT AVEC ♥ FACE À LA MER</span></div></footer>;
+  return <footer className="site-footer"><div className="section-wrap footer-grid"><div className="footer-brand"><div><WaveLogo light /><span>L’ÉCUME<br /><strong>DES FALAISES</strong></span></div><p>Du bon son brut depuis Granville.<br />Pour les normands et les sympathisants.</p><div className="socials"><a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram">ig</a><a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook">f</a><a href="https://youtube.com" target="_blank" rel="noreferrer" aria-label="YouTube">yt</a></div></div><div><span className="footer-label">LA RADIO</span><button onClick={() => navigate('programmes')}>Nos programmes</button><button onClick={() => navigate('podcasts')}>Nos podcasts</button><button onClick={() => navigate('accueil')}>Qui sommes-nous ?</button></div><div><span className="footer-label">NOUS TROUVER</span><p>12 quai des Pilotes<br />76400 Fécamp, France</p><p>102.3 FM<br />et partout en ligne</p></div><div className="newsletter"><span className="footer-label">LES NOUVELLES DU LARGE</span><p>Un e-mail par mois. Des histoires,<br />des découvertes, rien de superflu.</p><form onSubmit={e => { e.preventDefault(); const form = e.currentTarget; form.reset(); alert('Merci ! Vous êtes bien inscrit à notre newsletter.'); }}><input type="email" required placeholder="Votre adresse e-mail" aria-label="Votre adresse e-mail" /><button aria-label="S’inscrire"><ArrowRight size={20} /></button></form></div></div><div className="section-wrap footer-bottom"><span>© 2026 L’Écume des falaises</span><div><a href="mailto:bonjour@ecumedesfalaises.fr">Mentions légales</a><a href="mailto:bonjour@ecumedesfalaises.fr">Confidentialité</a></div><span>FAIT AVEC ♥ FACE À LA MER</span></div></footer>;
 }
 
 export default App;

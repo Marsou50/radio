@@ -116,6 +116,26 @@ h2 em, .inner-hero em, .advertiser-hero em { font-family: Georgia, serif; font-w
 .round-play { border: 0; width: 43px; height: 43px; border-radius: 50%; display: grid; place-items: center; }
 .round-play.live { background: var(--ink); color: white; }
 
+/* Music history */
+.track-history { background: var(--ink); color: #fff; padding: 90px 0 95px; }
+.track-history .section-heading { margin-bottom: 38px; }
+.track-history .kicker { color: var(--lime); }
+.track-history h2 { font-family: 'Manrope', sans-serif; font-size: clamp(38px, 4.1vw, 59px); letter-spacing: -.055em; line-height: 1.05; margin: 0; }
+.track-history h2 em { color: var(--coral); }
+.track-history .outline-button { color: white; border-color: rgba(255,255,255,.5); }
+.history-list { border-top: 1px solid rgba(255,255,255,.18); }
+.history-row { display: grid; grid-template-columns: 35px 58px minmax(200px, 1fr) .7fr 100px 45px; gap: 22px; align-items: center; padding: 18px 10px; border-bottom: 1px solid rgba(255,255,255,.18); transition: background .2s; }
+.history-row:hover { background: rgba(255,255,255,.045); }
+.history-number { font-size: 9px; color: rgba(255,255,255,.4); }
+.history-cover { width: 56px; height: 56px; color: var(--ink); display: grid; place-items: center; border-radius: 2px; }
+.history-track h3 { font-family: 'Manrope', sans-serif; font-size: 18px; margin: 0 0 3px; }
+.history-track p { font-size: 11px; color: rgba(255,255,255,.58); margin: 0; }
+.history-genre { color: var(--lime); font-size: 8px; font-weight: 800; letter-spacing: .12em; }
+.history-time { color: rgba(255,255,255,.4); font-size: 8px; font-weight: 700; text-align: right; }
+.history-row .round-play { background: transparent; color: white; border: 1px solid rgba(255,255,255,.3); width: 39px; height: 39px; }
+.history-row .round-play:hover { background: var(--lime); color: var(--ink); border-color: var(--lime); }
+.advertiser-secondary { display: flex; align-items: center; gap: 7px; border: 0; background: transparent; padding: 14px 0 0; font-size: 10px; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+
 /* Local */
 .local-section { background: #e7eeeb; padding: 100px 0; }
 .local-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9%; align-items: center; }
@@ -350,6 +370,8 @@ h2 em, .inner-hero em, .advertiser-hero em { font-family: Georgia, serif; font-w
   .scroll-hint { display: none; }
   .schedule-row { grid-template-columns: 73px 4px 1fr 40px; gap: 17px; }
   .schedule-row > p { display: none; }
+  .history-row { grid-template-columns: 28px 58px 1fr 90px 42px; gap: 16px; }
+  .history-genre { display: none; }
   .local-grid { gap: 6%; }
   .local-image { height: 400px; }
   .local-copy { padding: 0; }
@@ -409,6 +431,12 @@ h2 em, .inner-hero em, .advertiser-hero em { font-family: Georgia, serif; font-w
   .schedule-time small { display: block; margin: 3px 0 0; }
   .schedule-title h3 { font-size: 16px; }
   .round-play { width: 35px; height: 35px; }
+  .track-history { padding: 70px 0; }
+  .track-history h2 { font-size: 39px; }
+  .history-row { grid-template-columns: 48px 1fr 37px; gap: 14px; padding: 16px 0; }
+  .history-number, .history-time { display: none; }
+  .history-cover { width: 48px; height: 48px; }
+  .history-track h3 { font-size: 16px; }
   .local-section { padding: 70px 0; }
   .local-grid { grid-template-columns: 1fr; gap: 55px; }
   .local-image { height: 360px; width: calc(100% - 20px); margin-left: 20px; }

@@ -37,7 +37,9 @@ npm run build
 npm run preview
 ```
 
-Les fichiers optimisés sont générés dans `dist/`.
+Les fichiers optimisés sont générés dans `dist/`. Le script `scripts/sync-legacy.mjs` les copie également à la racine (`assets/`, `images/` et `index.html`) pour le mode de publication GitHub Pages actuellement actif sur ce dépôt.
+
+> Pour modifier les métadonnées HTML, utilisez `index.source.html`. Le fichier `index.html` à la racine est généré automatiquement pendant la compilation.
 
 ## Déployer sur GitHub Pages
 

@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  // Des chemins relatifs permettent le déploiement sur GitHub Pages (/radio/).
-  base: './',
+  // GitHub Pages publie ce dépôt sous /radio/ ; l’aperçu local reste à la racine.
+  base: process.env.GITHUB_ACTIONS ? '/radio/' : '/',
   server: { host: '0.0.0.0', allowedHosts: true },
 });

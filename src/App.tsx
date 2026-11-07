@@ -13,18 +13,18 @@ const STREAM_URL = import.meta.env.VITE_RADIO_STREAM_URL || 'https://icecast.rad
 const LIVE_TRACK: Track = {
   title: 'Le son de la côte',
   subtitle: 'Soul · Hip-hop · Reggae · Électro',
-  image: '/images/studio.jpg',
+  image: 'images/studio.jpg',
   url: STREAM_URL,
   live: true,
 };
 
 const musicUniverses = [
-  { id: 1, title: 'Grooves du littoral', category: 'Soul & groove', episode: 'Session 24 — Soul brute et voix du large', image: '/images/cote.jpg', color: 'sage' },
-  { id: 2, title: 'Hip-hop à marée haute', category: 'Hip-hop', episode: 'Session 18 — Beats sans frontières', image: '/images/falaises.jpg', color: 'blue' },
-  { id: 3, title: 'Reggae côté mer', category: 'Reggae', episode: 'Session 09 — Dub, roots and good vibes', image: '/images/micro.jpg', color: 'coral' },
-  { id: 4, title: 'Le grand large', category: 'Électro', episode: 'Session 41 — La playlist des jours de grand vent', image: '/images/studio.jpg', color: 'yellow' },
-  { id: 5, title: 'Pépites du placard', category: 'Soul & groove', episode: 'Session 12 — Des vinyles qui sentent bon le large', image: '/images/cote.jpg', color: 'sage' },
-  { id: 6, title: 'Électro littoral', category: 'Électro', episode: 'Session 87 — Nouvelles vagues électroniques', image: '/images/falaises.jpg', color: 'blue' },
+  { id: 1, title: 'Grooves du littoral', category: 'Soul & groove', episode: 'Session 24 — Soul brute et voix du large', image: 'images/cote.jpg', color: 'sage' },
+  { id: 2, title: 'Hip-hop à marée haute', category: 'Hip-hop', episode: 'Session 18 — Beats sans frontières', image: 'images/falaises.jpg', color: 'blue' },
+  { id: 3, title: 'Reggae côté mer', category: 'Reggae', episode: 'Session 09 — Dub, roots and good vibes', image: 'images/micro.jpg', color: 'coral' },
+  { id: 4, title: 'Le grand large', category: 'Électro', episode: 'Session 41 — La playlist des jours de grand vent', image: 'images/studio.jpg', color: 'yellow' },
+  { id: 5, title: 'Pépites du placard', category: 'Soul & groove', episode: 'Session 12 — Des vinyles qui sentent bon le large', image: 'images/cote.jpg', color: 'sage' },
+  { id: 6, title: 'Électro littoral', category: 'Électro', episode: 'Session 87 — Nouvelles vagues électroniques', image: 'images/falaises.jpg', color: 'blue' },
 ];
 
 const schedule = [
@@ -184,7 +184,7 @@ function HomePage({ playLive, playing, navigate }: { playLive: () => void; playi
       </div>
       <div className="hero-visual">
         <div className="hero-image-wrap">
-          <img src="/images/falaises.jpg" alt="Les falaises d’Étretat face à la mer" />
+          <img src="images/falaises.jpg" alt="Les falaises d’Étretat face à la mer" />
           <div className="image-shade" />
           <span className="on-air"><i /> ON AIR</span>
           <div className="hero-show">
@@ -239,7 +239,7 @@ function HomePage({ playLive, playing, navigate }: { playLive: () => void; playi
 
     <section className="local-section">
       <div className="section-wrap local-grid">
-        <div className="local-image"><img src="/images/cote.jpg" alt="Paysage de la côte normande" /><span className="vertical-caption">48.7600° N — 0.3700° E</span></div>
+        <div className="local-image"><img src="images/cote.jpg" alt="Paysage de la côte normande" /><span className="vertical-caption">48.7600° N — 0.3700° E</span></div>
         <div className="local-copy"><span className="kicker">UNE RADIO, DES OREILLES CURIEUSES</span><h2>Du bon son brut.<br /><em>Rien que ça.</em></h2><p>Nous aimons les disques qui sortent des sentiers battus, les voix qui racontent quelque chose et les basses qui font du bien. Une radio libre, associative et résolument normande.</p><div className="local-stats"><div><strong>24 / 7</strong><span>de musique en continu</span></div><div><strong>100 %</strong><span>de sélections humaines</span></div></div><button className="text-link" onClick={() => navigate('programmes')}>Voir le déroulé du direct <ArrowRight size={18} /></button></div>
       </div>
     </section>

@@ -327,6 +327,56 @@ h2 em, .inner-hero em, .advertiser-hero em { font-family: Georgia, serif; font-w
 .audio-error { color: #f4a48d; font-size: 9px; margin-right: 8px; }
 .toast { position: fixed; z-index: 120; right: 25px; bottom: 112px; background: var(--lime); color: var(--ink); padding: 15px 20px; box-shadow: 0 8px 30px rgba(10,30,30,.2); display: flex; gap: 10px; align-items: center; font-size: 12px; font-weight: 600; animation: pageIn .3s ease; }
 
+/* Dark radio experience */
+:root { color: #edf1e9; background: #0b1112; --muted: #99aaa8; --line: rgba(225, 239, 230, .15); }
+body { background: #0b1112; color: #edf1e9; }
+.site-header .brand, .main-nav button, .menu-button { color: #edf1e9; }
+.site-header .wave-logo path { stroke: var(--lime); }
+.main-nav button::after { background: var(--lime); }
+.button-dark { background: var(--lime); color: var(--ink); }
+.button-dark:hover { background: #edffad; }
+.outline-button { color: #edf1e9; border-color: rgba(237,241,233,.65); }
+.hero h1, .section-heading h2, .local-copy h2, .contact-ad h2, .faq-section h2 { color: #edf1e9; }
+.hero-copy > p, .local-copy > p, .inner-hero > p { color: #9daaa8; }
+.hero-sticker, .listeners-pill { color: var(--ink); }
+.schedule-row:hover { background: rgba(255,255,255,.035); }
+.schedule-row.current { background: #1b2a22; }
+.schedule-title small { color: #94a39f; }
+.schedule-row > p, .schedule-time small, .local-stats span, .podcast-info > span, .podcast-info p { color: #96a6a3; }
+.round-play.live { background: var(--lime); color: var(--ink); }
+.track-history { background: #070c0d; }
+.history-live { color: var(--lime); display: grid; place-items: center; }
+.local-section { background: #10191a; }
+.local-image::before { border-color: #334644; }
+.local-copy h2 em, .section-heading h2 em { color: #f39a7e; }
+.podcast-category { background: var(--lime); color: var(--ink); }
+.universe-card .podcast-art img { filter: brightness(.72) saturate(.8); }
+.ad-banner { color: var(--ink); }
+.inner-hero h1 { color: #edf1e9; }
+.day-tabs button { color: #dce5df; }
+.day-tabs button.active { background: var(--lime); color: var(--ink); }
+.full-schedule-row.current { background: #1b2a22; }
+.full-schedule-row p, .big-time span { color: #96a6a3; }
+.in-direct-label { color: #95a5a1; font-size: 8px; font-weight: 800; letter-spacing: .12em; white-space: nowrap; }
+.simple-cta { background: #14282b; border: 1px solid rgba(255,255,255,.08); }
+.advertiser-hero { background: #070d0e; }
+.advertiser-stats strong, .why-section h2 { color: #edf1e9; }
+.benefit-grid article { background: #10191a; }
+.benefit-grid h3 { color: #edf1e9; }
+.quote-section { background: #101819; }
+.quote-intro h2 { color: #edf1e9; }
+.calculator { background: #162123; box-shadow: 0 15px 55px rgba(0,0,0,.25); }
+.calculator select { background: #0e1718; color: #edf1e9; }
+.estimate { background: #213024; }
+.contact-person small, .campaign-form .consent { color: #9aaba8; }
+.campaign-form input, .campaign-form textarea { color: #edf1e9; }
+.campaign-form input::placeholder, .campaign-form textarea::placeholder { color: #718380; }
+.success-card { background: #1b3023; }
+.success-card h3 { color: #edf1e9; }
+.faq-item { color: #edf1e9; }
+.site-footer { background: #070c0d; }
+.audio-player { background: #05090a; border-top: 1px solid rgba(223,255,117,.14); }
+
 @media (min-width: 1550px) {
   .hero { min-height: 700px; }
   .hero-image-wrap { height: 600px; }
@@ -355,7 +405,7 @@ h2 em, .inner-hero em, .advertiser-hero em { font-family: Georgia, serif; font-w
 @media (max-width: 850px) {
   body { padding-bottom: 82px; }
   .site-header { height: 78px; }
-  .main-nav { position: absolute; display: none; left: -20px; right: -20px; top: 77px; background: var(--paper); padding: 25px 30px; box-shadow: 0 12px 25px rgba(20,40,40,.12); }
+  .main-nav { position: absolute; display: none; left: -20px; right: -20px; top: 77px; background: #0b1112; padding: 25px 30px; box-shadow: 0 12px 25px rgba(0,0,0,.35); }
   .main-nav.open { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
   .main-nav button { font-size: 16px; }
   .header-listen { margin-left: auto; }

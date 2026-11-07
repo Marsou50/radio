@@ -1,0 +1,52 @@
+name: Déployer la radio sur GitHub Pages
+
+on:
+  push:
+    branches:
+      - arena/65a3e920-radio
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      VITE_RADIO_STREAM_URL: ${{ vars.VITE_RADIO_STREAM_URL }}
+    steps:
+      - name: Récupérer le projet
+        uses: actions/checkout@v4
+      - name: Configurer Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Installer les dépendances
+        run: npm ci
+      - name: Compiler le site
+        run: npm run build
+      - name: Configurer GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Préparer les fichiers
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Publier le site
+        id: deployment
+        uses: actions/deploy-pages@v4
